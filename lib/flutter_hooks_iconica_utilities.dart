@@ -1,7 +1,5 @@
 library flutter_hooks_iconica_utilities;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/use_delayed.dart' show useDelayed;
+export 'src/use_periodic.dart' show usePeriodic;
+export 'src/use_loading_callback.dart' show useLoadingCallback;
