@@ -1,27 +1,25 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Iconica Flutter Hooks
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A list of common hooks used during development not included in flutter_hooks
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+None yet, this list will grow
+
+- 
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add flutter_hooks_iconica_utilities to your pubspec alongside flutter_hooks
+
+```yml
+dependencies:
+  flutter_hooks_iconica_utilities:
+    git:
+      url: https://github.com/Iconica-Development/flutter_hooks_iconica_utilities
+      ref: 1.0.0
+  flutter_hooks: ^0.20.0
+```
 
 ## Usage
 
@@ -32,8 +30,10 @@ to `/example` folder.
 const like = 'sample';
 ```
 
-## Additional information
+## Want to contribute
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+If you would like to contribute to the plugin (e.g. by improving the documentation, solving a bug or adding a cool new feature), please carefully review our [contribution guide](../CONTRIBUTING.md) and send us your [pull request](https://github.com/Iconica-Development/flutter_community_chat/pulls).
+
+## Author
+
+This `flutter_community_chat` for Flutter is developed by [Iconica](https://iconica.nl). You can contact us at <support@iconica.nl>
