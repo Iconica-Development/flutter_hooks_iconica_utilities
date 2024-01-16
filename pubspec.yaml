@@ -1,15 +1,16 @@
 name: flutter_hooks_iconica_utilities
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Iconica-Development/flutter_hooks_iconica_utilities
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ">=3.2.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.20.0
 
 dev_dependencies:
   flutter_test:
