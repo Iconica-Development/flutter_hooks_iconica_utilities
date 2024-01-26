@@ -70,11 +70,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 TripleCallback useLoadingCallback(
   FutureOr<void> Function() function, {
   bool preventDuplicateCalls = true,
+  List<Object?>? keys,
 }) =>
     use(
       _UseLoadingVoidCallbackHook(
         function: function,
         preventDuplicateCalls: preventDuplicateCalls,
+        keys: keys,
       ),
     );
 
@@ -85,6 +87,7 @@ class _UseLoadingVoidCallbackHook extends Hook<TripleCallback> {
   const _UseLoadingVoidCallbackHook({
     required this.function,
     required this.preventDuplicateCalls,
+    super.keys,
   });
 
   @override
