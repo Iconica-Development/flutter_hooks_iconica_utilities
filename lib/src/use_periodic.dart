@@ -29,10 +29,12 @@ T? usePeriodic<T>({
   required Duration duration,
   required T Function() callback,
   T? initialState,
+  List<Object?>? keys,
 }) =>
     use(_UsePeriodicHook<T>(
       duration: duration,
       callback: callback,
+      keys: keys,
     ));
 
 class _UsePeriodicHook<T> extends Hook<T?> {
@@ -42,6 +44,7 @@ class _UsePeriodicHook<T> extends Hook<T?> {
   const _UsePeriodicHook({
     required this.duration,
     required this.callback,
+    super.keys,
   });
 
   @override

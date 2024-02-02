@@ -31,10 +31,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 void useDelayed({
   required Duration duration,
   required void Function() callback,
+  List<Object?>? keys,
 }) =>
     use(_UseDelayedHook(
       duration: duration,
       callback: callback,
+      keys: keys,
     ));
 
 class _UseDelayedHook extends Hook<void> {
@@ -44,6 +46,7 @@ class _UseDelayedHook extends Hook<void> {
   const _UseDelayedHook({
     required this.duration,
     required this.callback,
+    super.keys,
   });
 
   @override
