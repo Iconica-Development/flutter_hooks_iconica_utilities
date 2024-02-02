@@ -116,7 +116,7 @@ dependencies:
   flutter_hooks_iconica_utilities:
     git:
       url: https://github.com/Iconica-Development/flutter_hooks_iconica_utilities
-      ref: 1.0.1
+      ref: 1.0.2
   flutter_hooks: ^0.20.0
 ```
 
