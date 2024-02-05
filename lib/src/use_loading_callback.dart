@@ -18,8 +18,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 ///
 /// This does throttle subsequent calls, preventing another invocation
 /// whilst loading is true.
-/// You can disable this with the [preventDuplicateCalls] parameter by setting 
-/// it to true, but subsequent calls will both modify the state making it so 
+/// You can disable this with the [preventDuplicateCalls] parameter by setting
+/// it to true, but subsequent calls will both modify the state making it so
 /// that the state is no longer trustworthy.
 ///
 /// ```dart

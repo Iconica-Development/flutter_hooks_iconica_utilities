@@ -1,3 +1,10 @@
+## 1.0.2 - 2024/01/27
+
+- usePeriodic: update state if callback resolves to a different state
+- usePeriodic: add keys property
+- useDelayed: add keys property
+- useLoadingCallback: fix linter
+
 ## 1.0.1 - 2024/01/26
 
 - add optional keys parameter to useLoadingCallback to indicate dependencies
