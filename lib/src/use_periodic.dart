@@ -31,21 +31,22 @@ T? usePeriodic<T>({
   T? initialState,
   List<Object?>? keys,
 }) =>
-    use(_UsePeriodicHook<T>(
-      duration: duration,
-      callback: callback,
-      keys: keys,
-    ));
+    use(
+      _UsePeriodicHook<T>(
+        duration: duration,
+        callback: callback,
+        keys: keys,
+      ),
+    );
 
 class _UsePeriodicHook<T> extends Hook<T?> {
-  final Duration duration;
-  final T Function() callback;
-
   const _UsePeriodicHook({
     required this.duration,
     required this.callback,
     super.keys,
   });
+  final Duration duration;
+  final T Function() callback;
 
   @override
   _UsePeriodicState<T> createState() => _UsePeriodicState<T>();
@@ -72,9 +73,8 @@ class _UsePeriodicState<T> extends HookState<T?, _UsePeriodicHook<T>> {
   }
 
   @override
-  build(BuildContext context) {
-    return _state;
-  }
+  // ignore: always_declare_return_types
+  build(BuildContext context) => _state;
 
   @override
   void dispose() {

@@ -33,21 +33,22 @@ void useDelayed({
   required void Function() callback,
   List<Object?>? keys,
 }) =>
-    use(_UseDelayedHook(
-      duration: duration,
-      callback: callback,
-      keys: keys,
-    ));
+    use(
+      _UseDelayedHook(
+        duration: duration,
+        callback: callback,
+        keys: keys,
+      ),
+    );
 
 class _UseDelayedHook extends Hook<void> {
-  final Duration duration;
-  final void Function() callback;
-
   const _UseDelayedHook({
     required this.duration,
     required this.callback,
     super.keys,
   });
+  final Duration duration;
+  final void Function() callback;
 
   @override
   HookState<void, Hook> createState() => _UseDelayedState();
@@ -63,6 +64,7 @@ class _UseDelayedState extends HookState<void, _UseDelayedHook> {
   }
 
   @override
+  // ignore: always_declare_return_types
   build(BuildContext context) {}
 
   @override
