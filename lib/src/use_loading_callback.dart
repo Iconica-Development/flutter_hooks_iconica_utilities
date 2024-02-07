@@ -14,7 +14,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 ///
 /// You can get an optional callback based on the [TripleCallback.isLoading]
 /// property through the [TripleCallback.optional] property.
-/// This will only return the function if [TripleCallback.isLoading] is currently false.
+/// This will only return the function if [TripleCallback.isLoading] is
+/// currently false.
 ///
 /// This does throttle subsequent calls, preventing another invocation
 /// whilst loading is true.
@@ -81,14 +82,13 @@ TripleCallback useLoadingCallback(
     );
 
 class _UseLoadingVoidCallbackHook extends Hook<TripleCallback> {
-  final FutureOr<void> Function() function;
-  final bool preventDuplicateCalls;
-
   const _UseLoadingVoidCallbackHook({
     required this.function,
     required this.preventDuplicateCalls,
     super.keys,
   });
+  final FutureOr<void> Function() function;
+  final bool preventDuplicateCalls;
 
   @override
   _UseLoadingCallbackState createState() => _UseLoadingCallbackState();
@@ -122,12 +122,23 @@ class _UseLoadingCallbackState
   }
 
   @override
-  TripleCallback build(BuildContext context) {
-    return state;
-  }
+  TripleCallback build(BuildContext context) => state;
 }
 
 class TripleCallback {
+  TripleCallback._({
+    required bool preventDuplicateCalls,
+    required FutureOr<void> Function() function,
+    required bool isLoading,
+    required Object? error,
+    required StackTrace? stackTrace,
+    void Function()? callListener,
+  })  : _error = error,
+        _stackTrace = stackTrace,
+        _isLoading = isLoading,
+        _function = function,
+        _callListener = callListener,
+        _preventDuplicateCalls = preventDuplicateCalls;
   final FutureOr<void> Function() _function;
   bool _isLoading;
   final bool _preventDuplicateCalls;
@@ -148,7 +159,7 @@ class TripleCallback {
     _callListener = null;
   }
 
-  void call() async {
+  Future<void> call() async {
     if (_isLoading && _preventDuplicateCalls) {
       return;
     }
@@ -159,7 +170,7 @@ class TripleCallback {
     _callListener?.call();
     try {
       await _function();
-    } catch (error, stackTrace) {
+    } on Exception catch (error, stackTrace) {
       _error = error;
       _stackTrace = stackTrace;
       _callListener?.call();
@@ -169,19 +180,5 @@ class TripleCallback {
     }
   }
 
-  void Function()? get optional => isLoading ? null : () => this();
-
-  TripleCallback._({
-    required bool preventDuplicateCalls,
-    required FutureOr<void> Function() function,
-    required bool isLoading,
-    required Object? error,
-    required StackTrace? stackTrace,
-    void Function()? callListener,
-  })  : _error = error,
-        _stackTrace = stackTrace,
-        _isLoading = isLoading,
-        _function = function,
-        _callListener = callListener,
-        _preventDuplicateCalls = preventDuplicateCalls;
+  void Function()? get optional => isLoading ? null : () async => this();
 }

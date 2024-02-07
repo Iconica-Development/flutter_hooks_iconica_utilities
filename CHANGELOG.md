@@ -1,3 +1,7 @@
+## 1.0.3 - 2024/02/07
+
+- Added CI and linter
+
 ## 1.0.2 - 2024/01/27
 
 - usePeriodic: update state if callback resolves to a different state
