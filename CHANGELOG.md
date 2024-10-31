@@ -1,3 +1,7 @@
+## 1.0.4 - 2024/10/01
+
+- Added forgejo pubserver
+
 ## 1.0.3 - 2024/02/07
 
 - Added CI and linter
