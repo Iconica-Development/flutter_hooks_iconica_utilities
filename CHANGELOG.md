@@ -1,3 +1,7 @@
+## 1.1.0 - 2025/04/11
+
+- Update flutter_hooks to ^0.21.2
+
 ## 1.0.4 - 2024/10/01
 
 - Added forgejo pubserver
